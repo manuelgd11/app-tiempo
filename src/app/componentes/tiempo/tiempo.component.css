@@ -1,0 +1,5 @@
+/*Clase para estilos div*/
+.alineacion{
+    margin-top: 15px; /*Para que la parte de arriba del formulario se separe del titulo*/
+    float: left; /*Para alinear el formulario*/
+}

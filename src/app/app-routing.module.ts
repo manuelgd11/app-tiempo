@@ -6,16 +6,16 @@ import { TiempoComponent } from './componentes/tiempo/tiempo.component';
  /*Constante que contiene todas las rutas de la aplicación*/
 const routes: Routes = [ /*Arreglo que contiene todas las rutas de la aplicación*/
   {
-    path: 'main', /*Nombre de la ruta(declaración) a cuál vamos a acceder*/
-    component: MainComponent /*Componente al que se hace referencia con la ruta main*/
+    path: 'tiempo', /*Nombre de la ruta(declaración) a cuál vamos a acceder*/
+    component: TiempoComponent /*Componente al que se hace referencia con la ruta main*/
   },
-  { path: 'tiempo', component: TiempoComponent },
+  { path: 'main', component: MainComponent },
 
   /*Configuraciones por defecto para que cuando el usuario no coloque ninguna ruta en específico, la aplicación
   vaya a un componente por defecto (para todos los path)*/
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'tiempo', pathMatch: 'full' },
   /*Configuracion para que cuando el usuario coloque cualquier path en la url, se llame al componente principal*/
-  { path: '**', component: MainComponent }
+  { path: '**', component: TiempoComponent }
 ];
 
 @NgModule({

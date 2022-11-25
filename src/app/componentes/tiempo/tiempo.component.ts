@@ -70,7 +70,11 @@ export class TiempoComponent {
         this.descripcion = this.estado_tiempo.weather[0].description;
       },
        /*Sentencia para capturar un error de servicio o método que se esté consumiendo*/
-      error: (error) => console.log(error),
+      error: (error) => {
+        console.log(error),
+        this.verError = true;
+        this.msjError = "Error al consultar el tiempo. Coloque un nombre y código de ciudad válidos."
+      },
       complete: () => console.log('Completado')
     }
     );

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms'; /*Importacion de formularios reactivos*/
 import { HttpClientModule }from '@angular/common/http'; /*Módulo que nos permite trabajar con la librería http
@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { MainComponent } from './componentes/main/main.component';
 import { TiempoComponent } from './componentes/tiempo/tiempo.component';
+
+/*Importamos el idioma español */
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
@@ -23,7 +28,7 @@ import { TiempoComponent } from './componentes/tiempo/tiempo.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [], /*Aquí se inyectan los servicios a utilizar*/
+  providers: [{provide: LOCALE_ID, useValue: 'es'}], /*Aquí se inyectan los servicios a utilizar*/
   bootstrap: [AppComponent] /*Punto de partida o inicio de nuestra aplicación*/
 })
 export class AppModule { }

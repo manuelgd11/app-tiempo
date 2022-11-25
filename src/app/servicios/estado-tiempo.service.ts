@@ -17,6 +17,7 @@ export class EstadoTiempoService {
     /*Declaracion de url para poder hacer el consumo del servicio*/
     const url = `${urlBase}?q=${ciudad}, ${codigo}&appid=${appId}`;
     /*Genero la petición http que devuelve un observable*/
+    console.log(url);
     return this.http.get(url);
   }
 }

@@ -1,47 +1,47 @@
-<div class="container"> <!--Clase css de bootstrap: container (contenedor)-->
-    <br>
+<div class="container">
     <h4>Consulta del tiempo</h4>
     <h5>{{fecha | date:'fullDate'}}</h5>
-    <!--div para contener el formulario-->
-    <div class="col-lg-6 alineacion card"> <!-- Clase bootstrap para definir el tamaño del elemento-->
-        <!--Declaracion para el uso de la clase formGroup y de la directiva "ngSubmit" que manejará 
-        el valor que se envíe en el formulario con la llamada del método consultar-->
-        <form [formGroup]="formulario" (ngSubmit)="consultar()">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Ciudad</label>
-                <!--La propiedad nos permite hacer el match entre mi objeto formulario y los campos de html,
-                por eso es importante que cada input tenga su nombre/id-->
-                <input type="text" class="form-control" id="text-ciudad"
-                formControlName="ciudad">
-                <!--Directiva "*ngIf" que es una condición lógica que debe cumplirse cuando sea verdadera-->
-                <!--Secuencia lógica de ngIf: 1. Obtengo el campo ciudad del formulario y verifico si es inválido
-                                              2. Pregunto si el campo ciudad en el formulario fué tocado-->
-                <p class="text-danger"
-                *ngIf="formulario.controls.ciudad.invalid && formulario.controls.ciudad.touched">Porfavor solo escribe letras</p>
+    <br>
+    <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+        <div class="column">
+            <form [formGroup]="formulario" (ngSubmit)="consultar()">
+                <div class="field">
+                    <label class="label">Ciudad</label>
+                    <div>
+                      <input type="text" placeholder="Ingrese ciudad" class="input" id="text-ciudad" formControlName="ciudad">
+                    </div>
+                    <p class="text-danger"
+                    *ngIf="formulario.controls.ciudad.invalid && formulario.controls.ciudad.touched">Porfavor solo escribe letras</p>
+                </div>
+                <div class="field">
+                    <label class="label">Código de ciudad</label>
+                    <div>
+                      <input type="text" placeholder="Ingrese código de ciudad" class="input" id="text-codigo" formControlName="codigo">
+                    </div>
+                    <p class="has-text-danger"
+                    *ngIf="formulario.controls.ciudad.invalid && formulario.controls.ciudad.touched">Porfavor solo escribe letras</p>
+                </div>
+                    <button type="submit" class="button is-link">Consultar</button>
+            </form>
+            <p class="has-text-danger" *ngIf="verError">{{msjError}}</p>
+    
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                      <!--Se genera una lista-->
+                      <ul>
+                          <li>Descripcion: {{descripcion}}</li>
+                          <li>Temperatura: {{temperatura}}</li>
+                          <li>Humedad: {{humedad}}</li>
+                          <li>Ciudad: {{nombre | uppercase}}</li>
+                          <li>Latitud: {{latitud}}</li>
+                          <li>Longitud: {{longitud}}</li>
+                      </ul>
+                    </div>
+                  </div>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Código de ciudad</label>
-                <input type="text" class="form-control" id="text-codigo" formControlName="codigo">
-                <p class="text-danger"
-                *ngIf="formulario.controls.ciudad.invalid && formulario.controls.ciudad.touched">Porfavor solo escribe letras</p>
-            </div>
-                <button type="submit" class="btn btn-primary alineacion">Consultar</button>
-        </form>
-        <p class="text-danger" *ngIf="verError">{{msjError}}</p>
-    </div>
-    <div class="col-lg-6 alineacion">
-        <div class="card">
-            <div class="card-body">
-              <!--Se genera una lista-->
-              <ul>
-                  <li>Descripcion: {{descripcion}}</li>
-                  <li>Temperatura: {{temperatura}}</li>
-                  <li>Humedad: {{humedad}}</li>
-                  <li>Ciudad: {{nombre | uppercase}}</li>
-                  <li>Latitud: {{latitud}}</li>
-                  <li>Longitud: {{longitud}}</li>
-              </ul>
-            </div>
-          </div>
-    </div>
-</div>
+        </div>
+      </div>
+  </div>

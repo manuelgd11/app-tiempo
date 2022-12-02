@@ -13,6 +13,7 @@ import { TiempoComponent } from './componentes/tiempo/tiempo.component';
 /*Importamos el idioma español */
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { ContactoComponent } from './componentes/contacto/contacto.component';
 registerLocaleData(localeEs, 'es');
 
 @NgModule({
@@ -20,13 +21,15 @@ registerLocaleData(localeEs, 'es');
     AppComponent,
     NavbarComponent,
     MainComponent,
-    TiempoComponent
+    TiempoComponent,
+    ContactoComponent
   ],
   imports: [ /*Aquí van otros módulos de la aplicación, framework o módulos que se vayan importando*/
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}], /*Aquí se inyectan los servicios a utilizar*/
   bootstrap: [AppComponent] /*Punto de partida o inicio de nuestra aplicación*/

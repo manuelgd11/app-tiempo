@@ -38,8 +38,6 @@ export class TiempoComponent {
 
   iniciarFormulario() {
 
-    /*Iniciamos el formulario y lo instanciamos para que sea igual a formbuilder para usar el
-    método formGroup que permite agrupar los distintos controles que tenga el formulario*/
     this.formulario = this.fb.group({
       ciudad: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       codigo: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]]
@@ -66,7 +64,7 @@ export class TiempoComponent {
       error: (error) => {
         console.log(error),
         this.verError = true;
-        this.msjError = "Error al consultar el tiempo. Coloque un nombre y código de ciudad válidos."
+        this.msjError = "Error al consultar el tiempo."
       },
       complete: () => console.log('Completado')
     }

@@ -1,0 +1,33 @@
+<h1>Formulario de contacto</h1>
+<form [formGroup]="contactoForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" required formControlName="name">
+        <div *ngIf="contactoForm.get('name')?.touched && contactoForm.get('name')?.errors?.['required']" class="alert alert-danger">Este elemento es requerido</div>
+        <div *ngIf="contactoForm.get('name')?.touched && contactoForm.get('name')?.errors?.['minlength']" class="alert alert-danger">Deben ser al menos 
+            {{ contactoForm.get('name')?.errors?.['minlength']?.requiredLength }} caracteres</div>
+    </div>
+    <div class="mb-4 form-checked">
+        <label for="checkAdult" class="form-label">Eres mayor de edad?</label>
+        <input type="checkbox" class="form-check-input" id="checkAdult" name="checkAdult" formControlName="checkAdult" required>
+        <div *ngIf="contactoForm.get('checkAdult')?.touched && contactoForm.get('checkAdult')?.errors?.['required']" class="alert alert-danger">Este elemento es requerido</div>
+    </div>
+    <div class="mb-4">
+        <label for="departament" class="form-label">Departament</label>
+        <select name="departament" id="departament" class="form-select form-select-sm" formControlName="'departament">
+            <option selected>Abrir para ver el menu</option>
+            <option value="marketing">Marketing</option>
+            <option value="sales">Ventas</option>
+            <option value="otros">Otros</option>
+        </select>
+    </div>
+    <div class="mb-4">
+        <label for="comment" class="form-label">Comentarios</label>
+        <textarea class="form-control" name="comment" id="comment" rows="4" placeholder="Escriba un comentario"
+            formControlName="comment"></textarea>
+            <div *ngIf="contactoForm.get('comment')?.touched && contactoForm.get('comment')?.errors?.['required']" class="alert alert-danger">Este elemento es requerido</div>
+    </div>
+    <div class="d-grid gap-2 -col-4 float-end">
+        <button type="submit" class="btn btn-info btn-lg" [disabled]="contactoForm.invalid">Enviar</button>
+    </div>
+</form>
